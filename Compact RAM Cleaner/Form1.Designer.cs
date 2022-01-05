@@ -39,28 +39,26 @@ namespace Compact_RAM_Cleaner
             this.Button1 = new System.Windows.Forms.Button();
             this.CacheCheck = new System.Windows.Forms.CheckBox();
             this.TitlePanel = new System.Windows.Forms.Panel();
+            this.SettingsPanel = new System.Windows.Forms.Panel();
             this.AppName = new System.Windows.Forms.Label();
             this.Minimize = new System.Windows.Forms.Panel();
             this.ClosePanel = new System.Windows.Forms.Panel();
-            this.Label1 = new System.Windows.Forms.Label();
-            this.Label2 = new System.Windows.Forms.Label();
-            this.LabelMon = new System.Windows.Forms.Label();
-            this.Label3 = new System.Windows.Forms.Label();
+            this.LabelMon1 = new System.Windows.Forms.Label();
+            this.LabelMon2 = new System.Windows.Forms.Label();
+            this.LabelRam = new System.Windows.Forms.Label();
+            this.LabelMon3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
-            this.checkBox1 = new System.Windows.Forms.CheckBox();
-            this.Numeric1 = new System.Windows.Forms.NumericUpDown();
-            this.LabelSettings = new System.Windows.Forms.Label();
-            this.Panel1 = new System.Windows.Forms.Panel();
-            this.checkBox3 = new System.Windows.Forms.CheckBox();
-            this.checkBox2 = new System.Windows.Forms.CheckBox();
-            this.checkBox4 = new System.Windows.Forms.CheckBox();
-            this.radioButton1 = new System.Windows.Forms.RadioButton();
-            this.radioButton2 = new System.Windows.Forms.RadioButton();
+            this.LabelPageFile = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
+            this.LabelMon6 = new System.Windows.Forms.Label();
+            this.LabelMon5 = new System.Windows.Forms.Label();
+            this.LabelMon4 = new System.Windows.Forms.Label();
             this.Context1.SuspendLayout();
             this.TitlePanel.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.Numeric1)).BeginInit();
             this.SuspendLayout();
             // 
             // NotifyIcon1
@@ -102,7 +100,7 @@ namespace Compact_RAM_Cleaner
             this.Button1.FlatAppearance.BorderSize = 0;
             this.Button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Button1.ForeColor = System.Drawing.Color.Black;
-            this.Button1.Location = new System.Drawing.Point(14, 110);
+            this.Button1.Location = new System.Drawing.Point(17, 205);
             this.Button1.Name = "Button1";
             this.Button1.Size = new System.Drawing.Size(134, 20);
             this.Button1.TabIndex = 14;
@@ -113,7 +111,7 @@ namespace Compact_RAM_Cleaner
             // CacheCheck
             // 
             this.CacheCheck.AutoSize = true;
-            this.CacheCheck.Location = new System.Drawing.Point(154, 113);
+            this.CacheCheck.Location = new System.Drawing.Point(157, 208);
             this.CacheCheck.Name = "CacheCheck";
             this.CacheCheck.Size = new System.Drawing.Size(55, 17);
             this.CacheCheck.TabIndex = 26;
@@ -123,19 +121,29 @@ namespace Compact_RAM_Cleaner
             // TitlePanel
             // 
             this.TitlePanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(34)))), ((int)(((byte)(37)))));
+            this.TitlePanel.Controls.Add(this.SettingsPanel);
             this.TitlePanel.Controls.Add(this.AppName);
             this.TitlePanel.Controls.Add(this.Minimize);
             this.TitlePanel.Controls.Add(this.ClosePanel);
             this.TitlePanel.Location = new System.Drawing.Point(0, 0);
             this.TitlePanel.Name = "TitlePanel";
-            this.TitlePanel.Size = new System.Drawing.Size(250, 18);
+            this.TitlePanel.Size = new System.Drawing.Size(250, 20);
             this.TitlePanel.TabIndex = 25;
+            // 
+            // SettingsPanel
+            // 
+            this.SettingsPanel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.SettingsPanel.Location = new System.Drawing.Point(208, 0);
+            this.SettingsPanel.Name = "SettingsPanel";
+            this.SettingsPanel.Size = new System.Drawing.Size(18, 18);
+            this.SettingsPanel.TabIndex = 34;
+            this.SettingsPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.SettingsPanel_Paint);
             // 
             // AppName
             // 
             this.AppName.AutoSize = true;
             this.AppName.ForeColor = System.Drawing.SystemColors.ControlDark;
-            this.AppName.Location = new System.Drawing.Point(3, 2);
+            this.AppName.Location = new System.Drawing.Point(3, 4);
             this.AppName.Name = "AppName";
             this.AppName.Size = new System.Drawing.Size(115, 13);
             this.AppName.TabIndex = 33;
@@ -143,7 +151,7 @@ namespace Compact_RAM_Cleaner
             // 
             // Minimize
             // 
-            this.Minimize.Location = new System.Drawing.Point(208, 0);
+            this.Minimize.Location = new System.Drawing.Point(187, 1);
             this.Minimize.Name = "Minimize";
             this.Minimize.Size = new System.Drawing.Size(18, 18);
             this.Minimize.TabIndex = 32;
@@ -151,53 +159,53 @@ namespace Compact_RAM_Cleaner
             // 
             // ClosePanel
             // 
-            this.ClosePanel.Location = new System.Drawing.Point(229, -1);
+            this.ClosePanel.Location = new System.Drawing.Point(229, 0);
             this.ClosePanel.Name = "ClosePanel";
             this.ClosePanel.Size = new System.Drawing.Size(18, 18);
             this.ClosePanel.TabIndex = 31;
             this.ClosePanel.Paint += new System.Windows.Forms.PaintEventHandler(this.ClosePanel_Paint);
             // 
-            // Label1
+            // LabelMon1
             // 
-            this.Label1.AutoSize = true;
-            this.Label1.Location = new System.Drawing.Point(122, 47);
-            this.Label1.Name = "Label1";
-            this.Label1.Size = new System.Drawing.Size(46, 13);
-            this.Label1.TabIndex = 27;
-            this.Label1.Text = "Память";
+            this.LabelMon1.AutoSize = true;
+            this.LabelMon1.Location = new System.Drawing.Point(122, 53);
+            this.LabelMon1.Name = "LabelMon1";
+            this.LabelMon1.Size = new System.Drawing.Size(13, 13);
+            this.LabelMon1.TabIndex = 27;
+            this.LabelMon1.Text = "—";
             // 
-            // Label2
+            // LabelMon2
             // 
-            this.Label2.AutoSize = true;
-            this.Label2.Location = new System.Drawing.Point(122, 66);
-            this.Label2.Name = "Label2";
-            this.Label2.Size = new System.Drawing.Size(46, 13);
-            this.Label2.TabIndex = 28;
-            this.Label2.Text = "Память";
+            this.LabelMon2.AutoSize = true;
+            this.LabelMon2.Location = new System.Drawing.Point(122, 72);
+            this.LabelMon2.Name = "LabelMon2";
+            this.LabelMon2.Size = new System.Drawing.Size(13, 13);
+            this.LabelMon2.TabIndex = 28;
+            this.LabelMon2.Text = "—";
             // 
-            // LabelMon
+            // LabelRam
             // 
-            this.LabelMon.AutoSize = true;
-            this.LabelMon.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.LabelMon.Location = new System.Drawing.Point(81, 21);
-            this.LabelMon.Name = "LabelMon";
-            this.LabelMon.Size = new System.Drawing.Size(87, 17);
-            this.LabelMon.TabIndex = 30;
-            this.LabelMon.Text = "Мониторинг";
+            this.LabelRam.AutoSize = true;
+            this.LabelRam.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.LabelRam.Location = new System.Drawing.Point(54, 27);
+            this.LabelRam.Name = "LabelRam";
+            this.LabelRam.Size = new System.Drawing.Size(148, 17);
+            this.LabelRam.TabIndex = 30;
+            this.LabelRam.Text = "Оперативная память";
             // 
-            // Label3
+            // LabelMon3
             // 
-            this.Label3.AutoSize = true;
-            this.Label3.Location = new System.Drawing.Point(122, 86);
-            this.Label3.Name = "Label3";
-            this.Label3.Size = new System.Drawing.Size(46, 13);
-            this.Label3.TabIndex = 29;
-            this.Label3.Text = "Память";
+            this.LabelMon3.AutoSize = true;
+            this.LabelMon3.Location = new System.Drawing.Point(122, 92);
+            this.LabelMon3.Name = "LabelMon3";
+            this.LabelMon3.Size = new System.Drawing.Size(13, 13);
+            this.LabelMon3.TabIndex = 29;
+            this.LabelMon3.Text = "—";
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(12, 47);
+            this.label4.Location = new System.Drawing.Point(12, 53);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(46, 13);
             this.label4.TabIndex = 31;
@@ -206,7 +214,7 @@ namespace Compact_RAM_Cleaner
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(12, 66);
+            this.label5.Location = new System.Drawing.Point(12, 72);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(80, 13);
             this.label5.TabIndex = 32;
@@ -215,165 +223,114 @@ namespace Compact_RAM_Cleaner
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(12, 86);
+            this.label6.Location = new System.Drawing.Point(12, 92);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(105, 13);
             this.label6.TabIndex = 33;
             this.label6.Text = "Свободной памяти:";
             // 
-            // checkBox1
+            // LabelPageFile
             // 
-            this.checkBox1.AutoSize = true;
-            this.checkBox1.ForeColor = System.Drawing.SystemColors.ControlDark;
-            this.checkBox1.Location = new System.Drawing.Point(14, 165);
-            this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(192, 17);
-            this.checkBox1.TabIndex = 22;
-            this.checkBox1.Text = "Автоочистка при достижении (%)";
-            this.checkBox1.UseVisualStyleBackColor = true;
+            this.LabelPageFile.AutoSize = true;
+            this.LabelPageFile.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.LabelPageFile.Location = new System.Drawing.Point(71, 116);
+            this.LabelPageFile.Name = "LabelPageFile";
+            this.LabelPageFile.Size = new System.Drawing.Size(111, 17);
+            this.LabelPageFile.TabIndex = 38;
+            this.LabelPageFile.Text = "Файл подкачки";
             // 
-            // Numeric1
+            // label7
             // 
-            this.Numeric1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(58)))), ((int)(((byte)(59)))), ((int)(((byte)(64)))));
-            this.Numeric1.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.Numeric1.ForeColor = System.Drawing.SystemColors.Control;
-            this.Numeric1.Increment = new decimal(new int[] {
-            5,
-            0,
-            0,
-            0});
-            this.Numeric1.Location = new System.Drawing.Point(205, 165);
-            this.Numeric1.Maximum = new decimal(new int[] {
-            95,
-            0,
-            0,
-            0});
-            this.Numeric1.Minimum = new decimal(new int[] {
-            30,
-            0,
-            0,
-            0});
-            this.Numeric1.Name = "Numeric1";
-            this.Numeric1.Size = new System.Drawing.Size(44, 16);
-            this.Numeric1.TabIndex = 24;
-            this.Numeric1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.Numeric1.Value = new decimal(new int[] {
-            80,
-            0,
-            0,
-            0});
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(14, 181);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(105, 13);
+            this.label7.TabIndex = 50;
+            this.label7.Text = "Свободной памяти:";
             // 
-            // LabelSettings
+            // label8
             // 
-            this.LabelSettings.AutoSize = true;
-            this.LabelSettings.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.LabelSettings.Location = new System.Drawing.Point(85, 140);
-            this.LabelSettings.Name = "LabelSettings";
-            this.LabelSettings.Size = new System.Drawing.Size(79, 17);
-            this.LabelSettings.TabIndex = 38;
-            this.LabelSettings.Text = "Настройки";
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(14, 161);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(101, 13);
+            this.label8.TabIndex = 49;
+            this.label8.Text = "Выделено памяти:";
             // 
-            // Panel1
+            // label9
             // 
-            this.Panel1.Location = new System.Drawing.Point(233, 159);
-            this.Panel1.Name = "Panel1";
-            this.Panel1.Size = new System.Drawing.Size(15, 26);
-            this.Panel1.TabIndex = 34;
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(14, 142);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(46, 13);
+            this.label9.TabIndex = 48;
+            this.label9.Text = "Занято:";
             // 
-            // checkBox3
+            // LabelMon6
             // 
-            this.checkBox3.AutoSize = true;
-            this.checkBox3.ForeColor = System.Drawing.SystemColors.ControlDark;
-            this.checkBox3.Location = new System.Drawing.Point(15, 211);
-            this.checkBox3.Name = "checkBox3";
-            this.checkBox3.Size = new System.Drawing.Size(167, 17);
-            this.checkBox3.TabIndex = 40;
-            this.checkBox3.Text = "Запускать при загрузке ОС";
-            this.checkBox3.UseVisualStyleBackColor = true;
+            this.LabelMon6.AutoSize = true;
+            this.LabelMon6.Location = new System.Drawing.Point(124, 181);
+            this.LabelMon6.Name = "LabelMon6";
+            this.LabelMon6.Size = new System.Drawing.Size(13, 13);
+            this.LabelMon6.TabIndex = 47;
+            this.LabelMon6.Text = "—";
             // 
-            // checkBox2
+            // LabelMon5
             // 
-            this.checkBox2.AutoSize = true;
-            this.checkBox2.ForeColor = System.Drawing.SystemColors.ControlDark;
-            this.checkBox2.Location = new System.Drawing.Point(14, 188);
-            this.checkBox2.Name = "checkBox2";
-            this.checkBox2.Size = new System.Drawing.Size(186, 17);
-            this.checkBox2.TabIndex = 41;
-            this.checkBox2.Text = "Запускать очистку при запуске";
-            this.checkBox2.UseVisualStyleBackColor = true;
+            this.LabelMon5.AutoSize = true;
+            this.LabelMon5.Location = new System.Drawing.Point(124, 161);
+            this.LabelMon5.Name = "LabelMon5";
+            this.LabelMon5.Size = new System.Drawing.Size(13, 13);
+            this.LabelMon5.TabIndex = 46;
+            this.LabelMon5.Text = "—";
             // 
-            // checkBox4
+            // LabelMon4
             // 
-            this.checkBox4.AutoSize = true;
-            this.checkBox4.ForeColor = System.Drawing.SystemColors.ControlDark;
-            this.checkBox4.Location = new System.Drawing.Point(15, 234);
-            this.checkBox4.Name = "checkBox4";
-            this.checkBox4.Size = new System.Drawing.Size(151, 17);
-            this.checkBox4.TabIndex = 42;
-            this.checkBox4.Text = "Отключить уведомление";
-            this.checkBox4.UseVisualStyleBackColor = true;
-            // 
-            // radioButton1
-            // 
-            this.radioButton1.AutoSize = true;
-            this.radioButton1.Checked = true;
-            this.radioButton1.Location = new System.Drawing.Point(15, 257);
-            this.radioButton1.Name = "radioButton1";
-            this.radioButton1.Size = new System.Drawing.Size(67, 17);
-            this.radioButton1.TabIndex = 43;
-            this.radioButton1.TabStop = true;
-            this.radioButton1.Text = "Русский";
-            this.radioButton1.UseVisualStyleBackColor = true;
-            // 
-            // radioButton2
-            // 
-            this.radioButton2.AutoSize = true;
-            this.radioButton2.Location = new System.Drawing.Point(88, 257);
-            this.radioButton2.Name = "radioButton2";
-            this.radioButton2.Size = new System.Drawing.Size(59, 17);
-            this.radioButton2.TabIndex = 44;
-            this.radioButton2.Text = "English";
-            this.radioButton2.UseVisualStyleBackColor = true;
+            this.LabelMon4.AutoSize = true;
+            this.LabelMon4.Location = new System.Drawing.Point(124, 142);
+            this.LabelMon4.Name = "LabelMon4";
+            this.LabelMon4.Size = new System.Drawing.Size(13, 13);
+            this.LabelMon4.TabIndex = 45;
+            this.LabelMon4.Text = "—";
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(49)))), ((int)(((byte)(54)))));
-            this.ClientSize = new System.Drawing.Size(248, 285);
-            this.Controls.Add(this.radioButton2);
-            this.Controls.Add(this.radioButton1);
-            this.Controls.Add(this.checkBox4);
-            this.Controls.Add(this.checkBox2);
-            this.Controls.Add(this.checkBox3);
-            this.Controls.Add(this.Panel1);
-            this.Controls.Add(this.Numeric1);
-            this.Controls.Add(this.checkBox1);
-            this.Controls.Add(this.LabelSettings);
+            this.ClientSize = new System.Drawing.Size(248, 240);
+            this.Controls.Add(this.label7);
+            this.Controls.Add(this.label8);
+            this.Controls.Add(this.label9);
+            this.Controls.Add(this.LabelMon6);
+            this.Controls.Add(this.LabelMon5);
+            this.Controls.Add(this.LabelMon4);
+            this.Controls.Add(this.LabelPageFile);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.LabelMon);
-            this.Controls.Add(this.Label3);
-            this.Controls.Add(this.Label2);
-            this.Controls.Add(this.Label1);
+            this.Controls.Add(this.LabelRam);
+            this.Controls.Add(this.LabelMon3);
+            this.Controls.Add(this.LabelMon2);
+            this.Controls.Add(this.LabelMon1);
             this.Controls.Add(this.CacheCheck);
             this.Controls.Add(this.TitlePanel);
             this.Controls.Add(this.Button1);
+            this.DoubleBuffered = true;
             this.ForeColor = System.Drawing.SystemColors.Control;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Name = "Form1";
+            this.Opacity = 0D;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Англ";
+            this.Text = "Compact RAM Cleaner";
             this.WindowState = System.Windows.Forms.FormWindowState.Minimized;
             this.Load += new System.EventHandler(this.Form1_Load);
             this.Paint += new System.Windows.Forms.PaintEventHandler(this.Form1_Paint);
             this.Context1.ResumeLayout(false);
             this.TitlePanel.ResumeLayout(false);
             this.TitlePanel.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.Numeric1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -381,32 +338,31 @@ namespace Compact_RAM_Cleaner
 
         #endregion
         private System.Windows.Forms.NotifyIcon NotifyIcon1;
-        private System.Windows.Forms.Button Button1;
-        private System.Windows.Forms.CheckBox CacheCheck;
-        private System.Windows.Forms.ContextMenuStrip Context1;
-        private System.Windows.Forms.ToolStripMenuItem Menu1;
-        private System.Windows.Forms.ToolStripMenuItem Menu2;
         private System.Windows.Forms.Panel TitlePanel;
         private System.Windows.Forms.Panel Minimize;
         private System.Windows.Forms.Panel ClosePanel;
-        private System.Windows.Forms.Label Label1;
-        private System.Windows.Forms.Label Label2;
-        private System.Windows.Forms.Label LabelMon;
-        private System.Windows.Forms.Label Label3;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.CheckBox checkBox1;
-        private System.Windows.Forms.NumericUpDown Numeric1;
-        private System.Windows.Forms.Label LabelSettings;
-        private System.Windows.Forms.Panel Panel1;
-        private System.Windows.Forms.CheckBox checkBox3;
-        private System.Windows.Forms.CheckBox checkBox2;
         private System.Windows.Forms.Label AppName;
-        private System.Windows.Forms.CheckBox checkBox4;
-        private System.Windows.Forms.RadioButton radioButton1;
-        private System.Windows.Forms.RadioButton radioButton2;
-        private System.Windows.Forms.ToolStripMenuItem Menu3;
+        private System.Windows.Forms.Panel SettingsPanel;
+        public System.Windows.Forms.Button Button1;
+        public System.Windows.Forms.Label LabelMon1;
+        public System.Windows.Forms.Label LabelMon2;
+        public System.Windows.Forms.Label LabelRam;
+        public System.Windows.Forms.Label LabelMon3;
+        public System.Windows.Forms.Label label4;
+        public System.Windows.Forms.Label label5;
+        public System.Windows.Forms.Label label6;
+        public System.Windows.Forms.Label LabelPageFile;
+        public System.Windows.Forms.Label label7;
+        public System.Windows.Forms.Label label8;
+        public System.Windows.Forms.Label label9;
+        public System.Windows.Forms.Label LabelMon6;
+        public System.Windows.Forms.Label LabelMon5;
+        public System.Windows.Forms.Label LabelMon4;
+        public System.Windows.Forms.CheckBox CacheCheck;
+        public System.Windows.Forms.ContextMenuStrip Context1;
+        public System.Windows.Forms.ToolStripMenuItem Menu1;
+        public System.Windows.Forms.ToolStripMenuItem Menu2;
+        public System.Windows.Forms.ToolStripMenuItem Menu3;
     }
 }
 
