@@ -24,8 +24,8 @@ namespace Compact_RAM_Cleaner
         void ClosePanel_Paint(object sender, PaintEventArgs e)
         {
             e.Graphics.SmoothingMode = SmoothingMode.AntiAlias;
-            e.Graphics.DrawLine(f.pen, 4, 4, ClosePanel.Width - 4, ClosePanel.Height - 4);
-            e.Graphics.DrawLine(f.pen, 4, ClosePanel.Height - 4, ClosePanel.Width - 4, 4);
+            e.Graphics.DrawLine(f.pen, 6, 6, ClosePanel.Width - 6, ClosePanel.Height - 6);
+            e.Graphics.DrawLine(f.pen, 6, ClosePanel.Height - 6, ClosePanel.Width - 6, 6);
         }
         public Settings(Form1 form1)
         {
@@ -155,29 +155,10 @@ namespace Compact_RAM_Cleaner
                 Methods.type[1] = "KB";
                 Methods.type[2] = "MB";
                 Methods.type[3] = "GB";
-                AppName.Text = Lang.X("Настройки");
-                f.LabelRam.Text = Lang.X("Оперативная память");
                 f.LabelRam.Location = new Point(105, f.LabelRam.Location.Y);
-                f.label4.Text = Lang.X("Занято:");
-                f.label5.Text = Lang.X("Всего памяти:");
-                f.label6.Text = Lang.X("Свободной памяти:");
-                f.label9.Text = Lang.X("Занято:");
-                f.label8.Text = Lang.X("Выделено памяти:");
-                f.label7.Text = Lang.X("Свободной памяти:");
-                f.LabelPageFile.Text = Lang.X("Файл подкачки");
                 f.LabelPageFile.Location = new Point(87, f.LabelPageFile.Location.Y);
-                f.Button1.Text = Lang.X("Очистить");
-                f.CacheCheck.Text = Lang.X("+ кэш");
-                SettingLabel1.Text = Lang.X("Проверять обновления при запуске");
-                SettingLabel2.Text = Lang.X("Автоочистка при достижении (%)");
                 Numeric1.Location = new Point(174, Numeric1.Location.Y);
                 Panel1.Location = new Point(202, Panel1.Location.Y);
-                SettingLabel3.Text = Lang.X("Запускать очистку при запуске");
-                SettingLabel4.Text = Lang.X("Запускать при загрузке ОС");
-                SettingLabel5.Text = Lang.X("Отключить уведомление");
-                f.Context1.Items[0].Text = "Очистить ОЗУ";
-                f.Context1.Items[1].Text = "Очистить ОЗУ + кэш";
-                f.Context1.Items[2].Text = "Выход";
                 f.LabelMon2.Text = $"{Methods.GetSize(f.TotalRam())}";
             }
             else
@@ -187,31 +168,32 @@ namespace Compact_RAM_Cleaner
                 Methods.type[1] = "КБ";
                 Methods.type[2] = "МБ";
                 Methods.type[3] = "ГБ";
-                AppName.Text = Lang.X("Настройки");
-                f.LabelRam.Text = Lang.X("Оперативная память");
                 f.LabelRam.Location = new Point(54, f.LabelRam.Location.Y);
-                f.label4.Text = Lang.X("Занято:");
-                f.label5.Text = Lang.X("Всего памяти:");
-                f.label6.Text = Lang.X("Свободной памяти:");
-                f.label9.Text = Lang.X("Занято:");
-                f.label8.Text = Lang.X("Выделено памяти:");
-                f.label7.Text = Lang.X("Свободной памяти:");
-                f.LabelPageFile.Text = Lang.X("Файл подкачки");
                 f.LabelPageFile.Location = new Point(71, f.LabelPageFile.Location.Y);
-                f.Button1.Text = Lang.X("Очистить");
-                f.CacheCheck.Text = Lang.X("+ кэш");
-                SettingLabel1.Text = Lang.X("Проверять обновления при запуске");
-                SettingLabel2.Text = Lang.X("Автоочистка при достижении (%)");
                 Numeric1.Location = new Point(212, Numeric1.Location.Y);
                 Panel1.Location = new Point(240, Panel1.Location.Y);
-                SettingLabel3.Text = Lang.X("Запускать очистку при запуске");
-                SettingLabel4.Text = Lang.X("Запускать при загрузке ОС");
-                SettingLabel5.Text = Lang.X("Отключить уведомление");
-                f.Context1.Items[0].Text = "Очистить ОЗУ";
-                f.Context1.Items[1].Text = "Очистить ОЗУ + кэш";
-                f.Context1.Items[2].Text = "Выход";
                 f.LabelMon2.Text = $"{Methods.GetSize(f.TotalRam())}";
             }
+            AppName.Text = Lang.X("Настройки");
+            label5.Text = Lang.X("Язык");
+            f.LabelRam.Text = Lang.X("Оперативная память");
+            f.label4.Text = Lang.X("Занято:");
+            f.label5.Text = Lang.X("Всего памяти:");
+            f.label6.Text = Lang.X("Свободной памяти:");
+            f.label9.Text = Lang.X("Занято:");
+            f.label8.Text = Lang.X("Выделено памяти:");
+            f.label7.Text = Lang.X("Свободной памяти:");
+            f.LabelPageFile.Text = Lang.X("Файл подкачки");
+            f.Button1.Text = Lang.X("Очистить");
+            f.CacheCheck.Text = Lang.X("+ кэш");
+            SettingLabel1.Text = Lang.X("Проверять обновления при запуске");
+            SettingLabel2.Text = Lang.X("Автоочистка при достижении (%)");
+            SettingLabel3.Text = Lang.X("Запускать очистку при запуске");
+            SettingLabel4.Text = Lang.X("Запускать при загрузке ОС");
+            SettingLabel5.Text = Lang.X("Отключить уведомление");
+            f.Context1.Items[0].Text = Lang.X("Очистить ОЗУ");
+            f.Context1.Items[1].Text = Lang.X("Очистить ОЗУ + кэш");
+            f.Context1.Items[2].Text = Lang.X("Выход");
         }
     }
 }

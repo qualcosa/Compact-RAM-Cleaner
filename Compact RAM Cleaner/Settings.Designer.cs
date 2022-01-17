@@ -62,14 +62,14 @@
             this.TitlePanel.Controls.Add(this.ClosePanel);
             this.TitlePanel.Location = new System.Drawing.Point(0, 0);
             this.TitlePanel.Name = "TitlePanel";
-            this.TitlePanel.Size = new System.Drawing.Size(255, 20);
+            this.TitlePanel.Size = new System.Drawing.Size(255, 23);
             this.TitlePanel.TabIndex = 26;
             // 
             // AppName
             // 
             this.AppName.AutoSize = true;
             this.AppName.ForeColor = System.Drawing.SystemColors.ControlDark;
-            this.AppName.Location = new System.Drawing.Point(3, 4);
+            this.AppName.Location = new System.Drawing.Point(3, 5);
             this.AppName.Name = "AppName";
             this.AppName.Size = new System.Drawing.Size(62, 13);
             this.AppName.TabIndex = 33;
@@ -77,9 +77,9 @@
             // 
             // ClosePanel
             // 
-            this.ClosePanel.Location = new System.Drawing.Point(236, 0);
+            this.ClosePanel.Location = new System.Drawing.Point(232, 0);
             this.ClosePanel.Name = "ClosePanel";
-            this.ClosePanel.Size = new System.Drawing.Size(18, 18);
+            this.ClosePanel.Size = new System.Drawing.Size(23, 23);
             this.ClosePanel.TabIndex = 31;
             this.ClosePanel.Paint += new System.Windows.Forms.PaintEventHandler(this.ClosePanel_Paint);
             // 
@@ -293,7 +293,6 @@
 
         private System.Windows.Forms.Panel TitlePanel;
         private System.Windows.Forms.Label AppName;
-        private System.Windows.Forms.Panel ClosePanel;
         private System.Windows.Forms.Label SettingLabel2;
         private System.Windows.Forms.Label SettingLabel3;
         private System.Windows.Forms.Panel Panel1;
@@ -309,5 +308,6 @@
         public System.Windows.Forms.PictureBox Setting5;
         public System.Windows.Forms.PictureBox Setting1;
         public System.Windows.Forms.NumericUpDown Numeric1;
+        public System.Windows.Forms.Panel ClosePanel;
     }
 }

@@ -32,16 +32,16 @@ namespace Compact_RAM_Cleaner
         void ClosePanel_Paint(object sender, PaintEventArgs e)
         {
             e.Graphics.SmoothingMode = SmoothingMode.AntiAlias;
-            e.Graphics.DrawLine(pen, 4, 4, ClosePanel.Width - 4, ClosePanel.Height - 4);
-            e.Graphics.DrawLine(pen, 4, ClosePanel.Height - 4, ClosePanel.Width - 4, 4);
+            e.Graphics.DrawLine(pen, 6, 6, ClosePanel.Width - 6, ClosePanel.Height - 6);
+            e.Graphics.DrawLine(pen, 6, ClosePanel.Height - 6, ClosePanel.Width - 6, 6);
         }
         void SettingsPanel_Paint(object sender, PaintEventArgs e)
         {
-            e.Graphics.DrawLine(pen, 4, 5, ClosePanel.Width - 2, 5);
-            e.Graphics.DrawLine(pen, 4, 10, ClosePanel.Width - 2, 10);
-            e.Graphics.DrawLine(pen, 4, 15, ClosePanel.Width - 2, 15);
+            e.Graphics.DrawLine(pen, 5, 7, ClosePanel.Width - 5, 7);
+            e.Graphics.DrawLine(pen, 5, 12, ClosePanel.Width - 5, 12);
+            e.Graphics.DrawLine(pen, 5, 17, ClosePanel.Width - 5, 17);
         }
-        void Minimize_Paint(object sender, PaintEventArgs e) => e.Graphics.DrawLine(pen, 4, 9, Minimize.Width - 4, 9);
+        void Minimize_Paint(object sender, PaintEventArgs e) => e.Graphics.DrawLine(pen, 5, 12, Minimize.Width - 5, 12);
         #endregion
 
         [DllImport("user32.dll", CharSet = CharSet.Auto)] extern static bool DestroyIcon(IntPtr handle);
@@ -114,6 +114,11 @@ namespace Compact_RAM_Cleaner
             }
             p = new Settings(this);
             new List<Control> { p.Setting1, p.Setting2, p.Setting3, p.Setting4, p.Setting5 }.ForEach(x => { x.BackgroundImage = p.toggleOff; });
+            new List<Control> { ClosePanel, SettingsPanel, Minimize, p.ClosePanel }.ForEach(x =>
+            {
+                x.MouseEnter += (s, e) => x.BackColor = Color.FromArgb(62, 64, 67);
+                x.MouseLeave += (s, e) => x.BackColor = Color.FromArgb(32, 34, 37);
+            });
             Resize += async (s, e) =>
             {
                 if (WindowState == FormWindowState.Minimized)
@@ -125,11 +130,11 @@ namespace Compact_RAM_Cleaner
                     for (Opacity = 0; Opacity < 1; Opacity += .2) await Task.Delay(10);
                 }
             };
-            NotifyIcon1.MouseClick += (s, e) => { if (e.Button == MouseButtons.Left) { Show(); WindowState = FormWindowState.Normal; } else if (e.Button == MouseButtons.Middle) Ram(false); };
-            Button1.Click += (s, e) => Ram(false);
-            Menu1.Click += (s, e) => Ram(false);
+            NotifyIcon1.MouseClick += (s, e) => { if (e.Button == MouseButtons.Left) { Show(); WindowState = FormWindowState.Normal; } else if (e.Button == MouseButtons.Middle) Ram(p.Setting5.BackgroundImage == p.toggleOff, false); };
+            Button1.Click += (s, e) => Ram(p.Setting5.BackgroundImage == p.toggleOff, CacheCheck.Checked);
+            Menu1.Click += (s, e) => Ram(p.Setting5.BackgroundImage == p.toggleOff, false);
             Menu2.Click += (s, e) => Methods.Exit(this);
-            Menu3.Click += (s, e) => { Ram(false); if (!CacheCheck.Checked) ClearCache(); };
+            Menu3.Click += (s, e) => Ram(p.Setting5.BackgroundImage == p.toggleOff, true);
             ClosePanel.Click += (s, e) => Methods.Exit(this);
             SettingsPanel.Click += (s, e) => p.ShowDialog();
             Minimize.Click += async (s, e) => { for (Opacity = 1; Opacity > .0; Opacity -= .2) await Task.Delay(10); WindowState = FormWindowState.Minimized; };
@@ -173,7 +178,7 @@ namespace Compact_RAM_Cleaner
                         AutoCleaner();
                     }
                     else if (x.Contains("ClearCache=true")) CacheCheck.Checked = true;
-                    else if (x.Contains("StartupCleaner=true")) { p.Setting3.BackgroundImage = p.toggleOn; Ram(false); }
+                    else if (x.Contains("StartupCleaner=true")) { p.Setting3.BackgroundImage = p.toggleOn; Ram(p.Setting5.BackgroundImage == p.toggleOff, false); }
                     else if (x.Contains("NotifyDisable=true")) p.Setting5.BackgroundImage = p.toggleOn;
                 });
             }
@@ -225,16 +230,16 @@ namespace Compact_RAM_Cleaner
             while (p.Setting2.BackgroundImage == p.toggleOn)
             {
                 if (num >= p.Numeric1.Value)
-                    Ram(true);
+                    Ram(false, CacheCheck.Checked);
                 await Task.Delay(30000);
             }
         }
-        public void Ram(bool auto)
+        public void Ram(bool notify, bool cache)
         {
-            if (!auto) ram = FreeRam();
+            if (notify) ram = FreeRam();
             Process.GetProcesses().ToList().ForEach(x => { try { EmptyWorkingSet(x.Handle); } catch { } });
-            if (CacheCheck.Checked) ClearCache();
-            if (!auto && p.Setting5.BackgroundImage == p.toggleOff) Popup.Show($"{Lang.X("Освободилось")} {Methods.GetSize(FreeRam() - ram)}");
+            if (cache) ClearCache();
+            if (notify) Popup.Show($"{Lang.X("Освободилось")} {Methods.GetSize(FreeRam() - ram)}");
         }
         async void Tray()
         {

@@ -19,6 +19,7 @@ namespace Compact_RAM_Cleaner
             ["Очистить"] = "Clear",
             ["+ кэш"] = "+ Cached",
             ["Настройки"] = "Settings",
+            ["Язык"] = "Language",
             ["Проверять обновления при запуске"] = "Check for updates at startup",
             ["Автоочистка при достижении (%)"] = "Auto purge on reaching (%)",
             ["Запускать очистку при запуске"] = "Run cleanup on startup",

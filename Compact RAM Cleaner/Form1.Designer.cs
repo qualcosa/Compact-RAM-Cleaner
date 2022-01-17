@@ -127,15 +127,15 @@ namespace Compact_RAM_Cleaner
             this.TitlePanel.Controls.Add(this.ClosePanel);
             this.TitlePanel.Location = new System.Drawing.Point(0, 0);
             this.TitlePanel.Name = "TitlePanel";
-            this.TitlePanel.Size = new System.Drawing.Size(250, 20);
+            this.TitlePanel.Size = new System.Drawing.Size(250, 23);
             this.TitlePanel.TabIndex = 25;
             // 
             // SettingsPanel
             // 
             this.SettingsPanel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.SettingsPanel.Location = new System.Drawing.Point(208, 0);
+            this.SettingsPanel.Location = new System.Drawing.Point(203, 0);
             this.SettingsPanel.Name = "SettingsPanel";
-            this.SettingsPanel.Size = new System.Drawing.Size(18, 18);
+            this.SettingsPanel.Size = new System.Drawing.Size(23, 23);
             this.SettingsPanel.TabIndex = 34;
             this.SettingsPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.SettingsPanel_Paint);
             // 
@@ -143,7 +143,7 @@ namespace Compact_RAM_Cleaner
             // 
             this.AppName.AutoSize = true;
             this.AppName.ForeColor = System.Drawing.SystemColors.ControlDark;
-            this.AppName.Location = new System.Drawing.Point(3, 4);
+            this.AppName.Location = new System.Drawing.Point(3, 5);
             this.AppName.Name = "AppName";
             this.AppName.Size = new System.Drawing.Size(115, 13);
             this.AppName.TabIndex = 33;
@@ -151,17 +151,17 @@ namespace Compact_RAM_Cleaner
             // 
             // Minimize
             // 
-            this.Minimize.Location = new System.Drawing.Point(187, 1);
+            this.Minimize.Location = new System.Drawing.Point(180, 0);
             this.Minimize.Name = "Minimize";
-            this.Minimize.Size = new System.Drawing.Size(18, 18);
+            this.Minimize.Size = new System.Drawing.Size(23, 23);
             this.Minimize.TabIndex = 32;
             this.Minimize.Paint += new System.Windows.Forms.PaintEventHandler(this.Minimize_Paint);
             // 
             // ClosePanel
             // 
-            this.ClosePanel.Location = new System.Drawing.Point(229, 0);
+            this.ClosePanel.Location = new System.Drawing.Point(225, 0);
             this.ClosePanel.Name = "ClosePanel";
-            this.ClosePanel.Size = new System.Drawing.Size(18, 18);
+            this.ClosePanel.Size = new System.Drawing.Size(23, 23);
             this.ClosePanel.TabIndex = 31;
             this.ClosePanel.Paint += new System.Windows.Forms.PaintEventHandler(this.ClosePanel_Paint);
             // 
