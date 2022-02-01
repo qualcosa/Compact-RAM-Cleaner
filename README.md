@@ -10,4 +10,3 @@ There is a silent key - **silent** to start immediately in the tray
 
 ## 
 ![](https://i.imgur.com/GW4K1uS.png)  
-![](https://i.imgur.com/FeixKAX.png)  
