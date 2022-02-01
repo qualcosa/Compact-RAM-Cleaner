@@ -9,5 +9,5 @@ Small program for cleaning RAM
 There is a silent key - **silent** to start immediately in the tray  
 
 ## 
-![](https://i.imgur.com/boS1UGY.png)  
-![](https://i.imgur.com/jpjJUXE.png)  
+![Скриншоты](https://i.imgur.com/GW4K1uS.png)  
+![Скриншоты](https://i.imgur.com/FeixKAX.png)  
