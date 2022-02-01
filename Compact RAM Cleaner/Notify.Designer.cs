@@ -67,7 +67,6 @@ namespace Compact_RAM_Cleaner
             this.Opacity = 0D;
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
-            this.Text = "Уведомление";
             this.TopMost = true;
             this.Load += new System.EventHandler(this.Notify_Load);
             this.Paint += new System.Windows.Forms.PaintEventHandler(this.Notify_Paint);

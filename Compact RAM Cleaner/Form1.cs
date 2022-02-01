@@ -13,6 +13,7 @@ using System.Management;
 using System.Reflection;
 using System.Runtime.InteropServices;
 using System.Security.Principal;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -133,8 +134,9 @@ namespace Compact_RAM_Cleaner
             NotifyIcon1.MouseClick += (s, e) => { if (e.Button == MouseButtons.Left) { Show(); WindowState = FormWindowState.Normal; } else if (e.Button == MouseButtons.Middle) Ram(p.Setting5.BackgroundImage == p.toggleOff, false); };
             Button1.Click += (s, e) => Ram(p.Setting5.BackgroundImage == p.toggleOff, CacheCheck.Checked);
             Menu1.Click += (s, e) => Ram(p.Setting5.BackgroundImage == p.toggleOff, false);
-            Menu2.Click += (s, e) => Methods.Exit(this);
-            Menu3.Click += (s, e) => Ram(p.Setting5.BackgroundImage == p.toggleOff, true);
+            Menu2.Click += (s, e) => Ram(p.Setting5.BackgroundImage == p.toggleOff, true);
+            Menu3.Click += (s, e) => Process.Start("taskmgr");
+            Menu4.Click += (s, e) => Methods.Exit(this);
             ClosePanel.Click += (s, e) => Methods.Exit(this);
             SettingsPanel.Click += (s, e) => p.ShowDialog();
             Minimize.Click += async (s, e) => { for (Opacity = 1; Opacity > .0; Opacity -= .2) await Task.Delay(10); WindowState = FormWindowState.Minimized; };
@@ -161,30 +163,65 @@ namespace Compact_RAM_Cleaner
             {
                 x.MouseDown += (s, a) => { x.Capture = false; Capture = false; Message m = Message.Create(Handle, 0xA1, new IntPtr(2), IntPtr.Zero); base.WndProc(ref m); };
             });
-            Tray();
             LabelMon2.Text = $"{Methods.GetSize(TotalRam())}";
             foreach (var arg in Environment.GetCommandLineArgs()) Methods.silent = arg.EndsWith("silent");
             if (File.Exists(Methods.ini))
             {
-                File.ReadAllLines(Methods.ini).ToList().ForEach(x =>
+                string iniFile = File.ReadAllText(Methods.ini);
+                if (iniFile.Contains("Language=en")) p.radioButton2.Checked = true;
+                if (iniFile.Contains("AutoUpdate=true")) { p.Setting1.BackgroundImage = p.toggleOn; if (Methods.UpdateCheck()) Methods.UpdateNow(); }
+                if (iniFile.Contains("AutoCleanerValue="))
                 {
-                    if (x.Contains("Language=en")) p.radioButton2.Checked = true;
-                    if (x.Contains("AutoUpdate=true")) { p.Setting1.BackgroundImage = p.toggleOn; if (Methods.UpdateCheck()) Methods.UpdateNow(); }
-                    else if (x.Contains("AutoCleanerValue="))
+                    p.Setting2.BackgroundImage = p.toggleOn;
+                    try { p.Numeric1.Value = Convert.ToDecimal(Regex.Match(iniFile, "AutoCleanerValue=([0-9]+)").Groups[1].Value); } catch { p.Numeric1.Value = 80; }
+                    p.Numeric1.Enabled = false;
+                    AutoCleaner();
+                }
+                if (iniFile.Contains("ClearCache=true")) CacheCheck.Checked = true;
+                if (iniFile.Contains("NotifyDisable=true")) p.Setting5.BackgroundImage = p.toggleOn;
+                if (iniFile.Contains("StartupCleaner=true")) { p.Setting3.BackgroundImage = p.toggleOn; Ram(p.Setting5.BackgroundImage == p.toggleOff, false); }
+                if (iniFile.Contains("CustomColors="))
+                {
+                    try
                     {
-                        p.Setting2.BackgroundImage = p.toggleOn;
-                        p.Numeric1.Value = Convert.ToDecimal(x.Remove(0, 17)) <= 95 ? Convert.ToDecimal(x.Remove(0, 17)) : 80;
-                        p.Numeric1.Enabled = false;
-                        AutoCleaner();
+                        Match m = Regex.Match(iniFile, "CustomColors=([0-9]+);([0-9]+);([0-9]+);([0-9]+);([0-9]+);([0-9]+);([0-9]+);([0-9]+);([0-9]+);");
+                        p.ColorPanel1.BackColor = Color.FromArgb(Convert.ToInt32(m.Groups[1].Value), Convert.ToInt32(m.Groups[2].Value), Convert.ToInt32(m.Groups[3].Value));
+                        p.ColorPanel2.BackColor = Color.FromArgb(Convert.ToInt32(m.Groups[4].Value), Convert.ToInt32(m.Groups[5].Value), Convert.ToInt32(m.Groups[6].Value));
+                        p.ColorPanel3.BackColor = Color.FromArgb(Convert.ToInt32(m.Groups[7].Value), Convert.ToInt32(m.Groups[8].Value), Convert.ToInt32(m.Groups[9].Value));
                     }
-                    else if (x.Contains("ClearCache=true")) CacheCheck.Checked = true;
-                    else if (x.Contains("StartupCleaner=true")) { p.Setting3.BackgroundImage = p.toggleOn; Ram(p.Setting5.BackgroundImage == p.toggleOff, false); }
-                    else if (x.Contains("NotifyDisable=true")) p.Setting5.BackgroundImage = p.toggleOn;
-                });
+                    catch { }
+                }
+                if (iniFile.Contains("Theme="))
+                {
+                    if (iniFile.Contains("Theme=0"))
+                    {
+                        p.checkBox1.Checked = true;
+                        p.ColorsPanel.Visible = true;
+                        p.SwitchTheme(p.TrayColor0);
+                        c1 = p.ColorPanel1.BackColor;
+                        c2 = p.ColorPanel2.BackColor;
+                        c3 = p.ColorPanel3.BackColor;
+                    }
+                    else if (iniFile.Contains("Theme=2"))
+                    {
+                        p.SwitchTheme(p.TrayColor2);
+                        c1 = Color.FromArgb(26, 115, 232);
+                        c2 = Color.FromArgb(150, 50, 200);
+                        c3 = Color.FromArgb(200, 50, 50);
+                    }
+                    else if (iniFile.Contains("Theme=3"))
+                    {
+                        p.SwitchTheme(p.TrayColor3);
+                        c1 = Color.FromArgb(0, 130, 250);
+                        c2 = Color.FromArgb(80, 190, 60);
+                        c3 = Color.FromArgb(250, 200, 50);
+                    }
+                }
             }
             else { if (!CultureInfo.CurrentUICulture.ToString().Contains("ru-RU")) p.radioButton2.Checked = true; }
-            if (Registry.CurrentUser.CreateSubKey(@"SOFTWARE\Microsoft\Windows\CurrentVersion\Run")?.GetValue("Compact RAM Cleaner") != null)
+            if (Registry.CurrentUser.OpenSubKey(@"SOFTWARE\Microsoft\Windows\CurrentVersion\Run")?.GetValue("Compact RAM Cleaner") != null)
                 p.Setting4.BackgroundImage = p.toggleOn;
+            Tray();
         }
         async void Form1_Load(object sender, EventArgs e)
         {
@@ -241,6 +278,10 @@ namespace Compact_RAM_Cleaner
             if (cache) ClearCache();
             if (notify) Popup.Show($"{Lang.X("Освободилось")} {Methods.GetSize(FreeRam() - ram)}");
         }
+
+        public Color c1 = Color.FromArgb(30, 255, 0);
+        public Color c2 = Color.FromArgb(255, 246, 0);
+        public Color c3 = Color.FromArgb(200, 0, 0);
         async void Tray()
         {
             while (true)
@@ -250,13 +291,9 @@ namespace Compact_RAM_Cleaner
                 LabelMon3.Text = $"{Methods.GetSize(FreeRam())}";
                 Bitmap b = new Bitmap(16, 16);
                 Graphics g = Graphics.FromImage(b);
-                g.FillRectangle(new LinearGradientBrush(new Rectangle(1, 1, 15, 15), Color.FromArgb(30, 255, 0), Color.FromArgb(200, 0, 0), 270F)
+                g.FillRectangle(new LinearGradientBrush(new Rectangle(1, 1, 15, 15), c1, c3, 270F)
                 {
-                    InterpolationColors = new ColorBlend(3)
-                    {
-                        Colors = new Color[3] { Color.FromArgb(30, 255, 0), Color.FromArgb(255, 246, 0), Color.FromArgb(200, 0, 0) },
-                        Positions = new float[3] { 0.0f, 0.3f, 1f }
-                    }
+                    InterpolationColors = new ColorBlend(3) { Colors = new Color[3] { c1, c2, c3 }, Positions = new float[3] { 0.0f, 0.5f, 1f } }
                 }, 0, 15 - 15 * (int)num / 100, 15, 15);
                 g.TextRenderingHint = TextRenderingHint.SingleBitPerPixelGridFit;
                 g.DrawString(num.ToString(), Methods.f, new SolidBrush(Color.Black), 0, 2);

@@ -34,8 +34,8 @@ namespace Compact_RAM_Cleaner
             this.NotifyIcon1 = new System.Windows.Forms.NotifyIcon(this.components);
             this.Context1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.Menu1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.Menu3 = new System.Windows.Forms.ToolStripMenuItem();
             this.Menu2 = new System.Windows.Forms.ToolStripMenuItem();
+            this.Menu4 = new System.Windows.Forms.ToolStripMenuItem();
             this.Button1 = new System.Windows.Forms.Button();
             this.CacheCheck = new System.Windows.Forms.CheckBox();
             this.TitlePanel = new System.Windows.Forms.Panel();
@@ -57,6 +57,7 @@ namespace Compact_RAM_Cleaner
             this.LabelMon6 = new System.Windows.Forms.Label();
             this.LabelMon5 = new System.Windows.Forms.Label();
             this.LabelMon4 = new System.Windows.Forms.Label();
+            this.Menu3 = new System.Windows.Forms.ToolStripMenuItem();
             this.Context1.SuspendLayout();
             this.TitlePanel.SuspendLayout();
             this.SuspendLayout();
@@ -71,10 +72,11 @@ namespace Compact_RAM_Cleaner
             // 
             this.Context1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.Menu1,
+            this.Menu2,
             this.Menu3,
-            this.Menu2});
+            this.Menu4});
             this.Context1.Name = "Context1";
-            this.Context1.Size = new System.Drawing.Size(190, 70);
+            this.Context1.Size = new System.Drawing.Size(190, 114);
             // 
             // Menu1
             // 
@@ -82,17 +84,17 @@ namespace Compact_RAM_Cleaner
             this.Menu1.Size = new System.Drawing.Size(189, 22);
             this.Menu1.Text = "Очистить ОЗУ";
             // 
-            // Menu3
-            // 
-            this.Menu3.Name = "Menu3";
-            this.Menu3.Size = new System.Drawing.Size(189, 22);
-            this.Menu3.Text = "Очистить ОЗУ + кэш";
-            // 
             // Menu2
             // 
             this.Menu2.Name = "Menu2";
             this.Menu2.Size = new System.Drawing.Size(189, 22);
-            this.Menu2.Text = "Выход";
+            this.Menu2.Text = "Очистить ОЗУ + кэш";
+            // 
+            // Menu4
+            // 
+            this.Menu4.Name = "Menu4";
+            this.Menu4.Size = new System.Drawing.Size(189, 22);
+            this.Menu4.Text = "Выход";
             // 
             // Button1
             // 
@@ -168,7 +170,7 @@ namespace Compact_RAM_Cleaner
             // LabelMon1
             // 
             this.LabelMon1.AutoSize = true;
-            this.LabelMon1.Location = new System.Drawing.Point(122, 53);
+            this.LabelMon1.Location = new System.Drawing.Point(124, 53);
             this.LabelMon1.Name = "LabelMon1";
             this.LabelMon1.Size = new System.Drawing.Size(13, 13);
             this.LabelMon1.TabIndex = 27;
@@ -177,7 +179,7 @@ namespace Compact_RAM_Cleaner
             // LabelMon2
             // 
             this.LabelMon2.AutoSize = true;
-            this.LabelMon2.Location = new System.Drawing.Point(122, 72);
+            this.LabelMon2.Location = new System.Drawing.Point(124, 72);
             this.LabelMon2.Name = "LabelMon2";
             this.LabelMon2.Size = new System.Drawing.Size(13, 13);
             this.LabelMon2.TabIndex = 28;
@@ -196,7 +198,7 @@ namespace Compact_RAM_Cleaner
             // LabelMon3
             // 
             this.LabelMon3.AutoSize = true;
-            this.LabelMon3.Location = new System.Drawing.Point(122, 92);
+            this.LabelMon3.Location = new System.Drawing.Point(124, 92);
             this.LabelMon3.Name = "LabelMon3";
             this.LabelMon3.Size = new System.Drawing.Size(13, 13);
             this.LabelMon3.TabIndex = 29;
@@ -205,7 +207,7 @@ namespace Compact_RAM_Cleaner
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(12, 53);
+            this.label4.Location = new System.Drawing.Point(14, 53);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(46, 13);
             this.label4.TabIndex = 31;
@@ -214,7 +216,7 @@ namespace Compact_RAM_Cleaner
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(12, 72);
+            this.label5.Location = new System.Drawing.Point(14, 72);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(80, 13);
             this.label5.TabIndex = 32;
@@ -223,7 +225,7 @@ namespace Compact_RAM_Cleaner
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(12, 92);
+            this.label6.Location = new System.Drawing.Point(14, 92);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(105, 13);
             this.label6.TabIndex = 33;
@@ -293,12 +295,20 @@ namespace Compact_RAM_Cleaner
             this.LabelMon4.TabIndex = 45;
             this.LabelMon4.Text = "—";
             // 
+            // Menu3
+            // 
+            this.Menu3.Name = "Menu3";
+            this.Menu3.Size = new System.Drawing.Size(189, 22);
+            this.Menu3.Text = "Диспетчер задач";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(49)))), ((int)(((byte)(54)))));
             this.ClientSize = new System.Drawing.Size(248, 240);
+            this.Controls.Add(this.CacheCheck);
+            this.Controls.Add(this.Button1);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.label9);
@@ -313,9 +323,7 @@ namespace Compact_RAM_Cleaner
             this.Controls.Add(this.LabelMon3);
             this.Controls.Add(this.LabelMon2);
             this.Controls.Add(this.LabelMon1);
-            this.Controls.Add(this.CacheCheck);
             this.Controls.Add(this.TitlePanel);
-            this.Controls.Add(this.Button1);
             this.DoubleBuffered = true;
             this.ForeColor = System.Drawing.SystemColors.Control;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -361,8 +369,9 @@ namespace Compact_RAM_Cleaner
         public System.Windows.Forms.CheckBox CacheCheck;
         public System.Windows.Forms.ContextMenuStrip Context1;
         public System.Windows.Forms.ToolStripMenuItem Menu1;
+        public System.Windows.Forms.ToolStripMenuItem Menu4;
         public System.Windows.Forms.ToolStripMenuItem Menu2;
-        public System.Windows.Forms.ToolStripMenuItem Menu3;
+        private System.Windows.Forms.ToolStripMenuItem Menu3;
     }
 }
 
