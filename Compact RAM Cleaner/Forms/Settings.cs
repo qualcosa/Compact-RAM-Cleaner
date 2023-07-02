@@ -238,6 +238,14 @@ namespace Compact_RAM_Cleaner
                 else
                     Save("NotifyEnabled", "false");
             };
+
+            StartMinimizedCheck.Click += (s, e) =>
+            {
+                if (StartMinimizedCheck.Checked)
+                    Save("StartMinimized", "true");
+                else
+                    Delete("StartMinimized");
+            };
         }
         #endregion
 
@@ -388,6 +396,12 @@ namespace Compact_RAM_Cleaner
                 Popup.ShowCleaningResult = false;
             }
 
+            if (GetValue("StartMinimized") == "true")
+            {
+                StartMinimizedCheck.Checked = true;
+                _form1.StartMinimized = true;
+            }
+
 
 
             if (TryGetValue("TrayTextColor", out var trayTextColor))
@@ -399,6 +413,7 @@ namespace Compact_RAM_Cleaner
             if (GetValue("TrayTextShadow") == "false")
             {
                 CheckBoxTextShadow.Checked = false;
+                TrayTextShadowColor.Visible = false;
                 _trayIcon.TextShadow = false;
             }
 
@@ -569,6 +584,7 @@ namespace Compact_RAM_Cleaner
             AutorunCheck.Text = Translations.GetString("Autorun");
             AutoClearCheck.Text = Translations.GetString("AutoClear");
             CleaningResultsCheck.Text = Translations.GetString("ShowCleaningResults");
+            StartMinimizedCheck.Text = Translations.GetString("StartMinimized");
             LabelGroup2.Text = Translations.GetString("Language");
 
             LabelGroup3.Text = Translations.GetString("GeneralSettings");

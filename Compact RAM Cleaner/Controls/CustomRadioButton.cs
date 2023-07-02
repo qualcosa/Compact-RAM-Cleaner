@@ -1,4 +1,5 @@
-﻿using System.Drawing;
+﻿using System;
+using System.Drawing;
 using System.Drawing.Drawing2D;
 using System.Drawing.Text;
 using System.Windows.Forms;
@@ -10,19 +11,18 @@ namespace Compact_RAM_Cleaner
         readonly Color _checkedColor = Color.FromArgb(117, 162, 247);
         readonly Color _uncheckedColor = Color.FromArgb(41, 42, 47);
 
-        public CustomRadioButton()
+        protected override void OnMouseEnter(EventArgs eventargs)
         {
-            MouseEnter += (s, e) =>
-            {
-                ForeColor = SystemColors.Control;
-                Refresh();
-            };
+            base.OnMouseEnter(eventargs);
+            ForeColor = SystemColors.Control;
+            Refresh();
+        }
 
-            MouseLeave += (s, e) =>
-            {
-                ForeColor = SystemColors.ControlDark;
-                Refresh();
-            };
+        protected override void OnMouseLeave(EventArgs eventargs)
+        {
+            base.OnMouseLeave(eventargs);
+            ForeColor = SystemColors.ControlDark;
+            Refresh();
         }
 
         protected override void OnPaint(PaintEventArgs pevent)

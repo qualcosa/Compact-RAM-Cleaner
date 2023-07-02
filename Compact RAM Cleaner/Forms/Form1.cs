@@ -24,6 +24,8 @@ namespace Compact_RAM_Cleaner
             set => ClearButton2.Checked = value;
         }
 
+        public bool StartMinimized;
+
         public Form1()
         {
             InitializeComponent();
@@ -48,11 +50,13 @@ namespace Compact_RAM_Cleaner
         void InitializeForm()
         {
             Icon = Icon.ExtractAssociatedIcon(Paths.ApplicationExe);
-            bool silent = Environment.GetCommandLineArgs().Any(x => x.EndsWith("silent"));
+
+            if (!StartMinimized)
+                StartMinimized = Environment.GetCommandLineArgs().Any(x => x.EndsWith("silent"));
 
             Load += async (s, e) =>
             {
-                if (silent)
+                if (StartMinimized)
                 {
                     Hide();
                     Opacity = 1;

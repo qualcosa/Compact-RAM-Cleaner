@@ -61,6 +61,7 @@ namespace Compact_RAM_Cleaner
             ["Autorun"] = "Run when my computer starts",
             ["AutoClear"] = "Auto clear when reached (%)",
             ["ShowCleaningResults"] = "Show cleaning results",
+            ["StartMinimized"] = "Start minimized to tray",
             ["Language"] = "Language",
 
             ["TextColor"] = "Text color",
@@ -118,6 +119,7 @@ namespace Compact_RAM_Cleaner
             ["Autorun"] = "Запускать при запуске компьютера",
             ["AutoClear"] = "Автоочистка при достижении (%)",
             ["ShowCleaningResults"] = "Показывать результаты очистки",
+            ["StartMinimized"] = "Запускать свёрнутым в трей",
             ["Language"] = "Язык",
 
             ["TextColor"] = "Цвет текста",
@@ -175,6 +177,7 @@ namespace Compact_RAM_Cleaner
             ["Autorun"] = "Запускати під час запуску комп'ютера",
             ["AutoClear"] = "Автоочищення при досягненні (%)",
             ["ShowCleaningResults"] = "Показувати результати очищення",
+            ["StartMinimized"] = "Запускати згорнутим у трей",
             ["Language"] = "Мова",
 
             ["TextColor"] = "Колір тексту",

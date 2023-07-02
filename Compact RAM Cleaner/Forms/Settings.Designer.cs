@@ -45,6 +45,7 @@
             this.RadioButtonEN = new System.Windows.Forms.RadioButton();
             this.LabelGroup2 = new System.Windows.Forms.Label();
             this.groupPanel1 = new Compact_RAM_Cleaner.GroupPanel();
+            this.StartMinimizedCheck = new System.Windows.Forms.CheckBox();
             this.NumericContainer = new System.Windows.Forms.Panel();
             this.Panel1 = new System.Windows.Forms.Panel();
             this.Numeric1 = new System.Windows.Forms.NumericUpDown();
@@ -184,7 +185,7 @@
             this.groupPanel2.Controls.Add(this.RadioButtonRU);
             this.groupPanel2.Controls.Add(this.RadioButtonEN);
             this.groupPanel2.Controls.Add(this.LabelGroup2);
-            this.groupPanel2.Location = new System.Drawing.Point(0, 128);
+            this.groupPanel2.Location = new System.Drawing.Point(0, 152);
             this.groupPanel2.Name = "groupPanel2";
             this.groupPanel2.Size = new System.Drawing.Size(320, 106);
             this.groupPanel2.TabIndex = 1;
@@ -262,6 +263,7 @@
             // 
             // groupPanel1
             // 
+            this.groupPanel1.Controls.Add(this.StartMinimizedCheck);
             this.groupPanel1.Controls.Add(this.NumericContainer);
             this.groupPanel1.Controls.Add(this.CleaningResultsCheck);
             this.groupPanel1.Controls.Add(this.AutoClearCheck);
@@ -270,8 +272,18 @@
             this.groupPanel1.Controls.Add(this.LabelGroup1);
             this.groupPanel1.Location = new System.Drawing.Point(0, 0);
             this.groupPanel1.Name = "groupPanel1";
-            this.groupPanel1.Size = new System.Drawing.Size(320, 128);
+            this.groupPanel1.Size = new System.Drawing.Size(320, 152);
             this.groupPanel1.TabIndex = 0;
+            // 
+            // StartMinimizedCheck
+            // 
+            this.StartMinimizedCheck.AutoSize = true;
+            this.StartMinimizedCheck.Location = new System.Drawing.Point(24, 116);
+            this.StartMinimizedCheck.Name = "StartMinimizedCheck";
+            this.StartMinimizedCheck.Size = new System.Drawing.Size(134, 17);
+            this.StartMinimizedCheck.TabIndex = 2;
+            this.StartMinimizedCheck.Text = "Start minimized to tray";
+            this.StartMinimizedCheck.UseVisualStyleBackColor = true;
             // 
             // NumericContainer
             // 
@@ -818,5 +830,6 @@
         private System.Windows.Forms.LinkLabel AboutLink4;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label AboutLabel3;
+        private System.Windows.Forms.CheckBox StartMinimizedCheck;
     }
 }
