@@ -43,7 +43,6 @@
             this.RadioButtonUA = new System.Windows.Forms.RadioButton();
             this.RadioButtonRU = new System.Windows.Forms.RadioButton();
             this.RadioButtonEN = new System.Windows.Forms.RadioButton();
-            this.LabelGroup2 = new System.Windows.Forms.Label();
             this.groupPanel1 = new Compact_RAM_Cleaner.GroupPanel();
             this.StartMinimizedCheck = new System.Windows.Forms.CheckBox();
             this.NumericContainer = new System.Windows.Forms.Panel();
@@ -53,7 +52,6 @@
             this.AutoClearCheck = new System.Windows.Forms.CheckBox();
             this.AutorunCheck = new System.Windows.Forms.CheckBox();
             this.AutoUpdateCheck = new System.Windows.Forms.CheckBox();
-            this.LabelGroup1 = new System.Windows.Forms.Label();
             this.TabPanel2 = new System.Windows.Forms.Panel();
             this.groupPanel4 = new Compact_RAM_Cleaner.GroupPanel();
             this.ColorsPanel = new System.Windows.Forms.Panel();
@@ -65,7 +63,6 @@
             this.TrayTheme1 = new System.Windows.Forms.Panel();
             this.TrayTheme0 = new System.Windows.Forms.Panel();
             this.LabelCustomStyle = new System.Windows.Forms.Label();
-            this.LabelGroup4 = new System.Windows.Forms.Label();
             this.groupPanel3 = new Compact_RAM_Cleaner.GroupPanel();
             this.radioButton2 = new System.Windows.Forms.RadioButton();
             this.radioButton1 = new System.Windows.Forms.RadioButton();
@@ -74,7 +71,6 @@
             this.CheckBoxTextShadow = new System.Windows.Forms.CheckBox();
             this.TrayTextColor = new Compact_RAM_Cleaner.ColorDialogProvider();
             this.LabelTextColor = new System.Windows.Forms.Label();
-            this.LabelGroup3 = new System.Windows.Forms.Label();
             this.TabPanel3 = new System.Windows.Forms.Panel();
             this.AboutLink4 = new System.Windows.Forms.LinkLabel();
             this.label6 = new System.Windows.Forms.Label();
@@ -184,11 +180,11 @@
             this.groupPanel2.Controls.Add(this.RadioButtonUA);
             this.groupPanel2.Controls.Add(this.RadioButtonRU);
             this.groupPanel2.Controls.Add(this.RadioButtonEN);
-            this.groupPanel2.Controls.Add(this.LabelGroup2);
             this.groupPanel2.Location = new System.Drawing.Point(0, 152);
             this.groupPanel2.Name = "groupPanel2";
             this.groupPanel2.Size = new System.Drawing.Size(320, 106);
             this.groupPanel2.TabIndex = 1;
+            this.groupPanel2.Title = "Language";
             // 
             // label3
             // 
@@ -252,15 +248,6 @@
             this.RadioButtonEN.Text = "English";
             this.RadioButtonEN.UseVisualStyleBackColor = true;
             // 
-            // LabelGroup2
-            // 
-            this.LabelGroup2.AutoSize = true;
-            this.LabelGroup2.Location = new System.Drawing.Point(20, 3);
-            this.LabelGroup2.Name = "LabelGroup2";
-            this.LabelGroup2.Size = new System.Drawing.Size(54, 13);
-            this.LabelGroup2.TabIndex = 1;
-            this.LabelGroup2.Text = "Language";
-            // 
             // groupPanel1
             // 
             this.groupPanel1.Controls.Add(this.StartMinimizedCheck);
@@ -269,11 +256,11 @@
             this.groupPanel1.Controls.Add(this.AutoClearCheck);
             this.groupPanel1.Controls.Add(this.AutorunCheck);
             this.groupPanel1.Controls.Add(this.AutoUpdateCheck);
-            this.groupPanel1.Controls.Add(this.LabelGroup1);
             this.groupPanel1.Location = new System.Drawing.Point(0, 0);
             this.groupPanel1.Name = "groupPanel1";
             this.groupPanel1.Size = new System.Drawing.Size(320, 152);
             this.groupPanel1.TabIndex = 0;
+            this.groupPanel1.Title = "General";
             // 
             // StartMinimizedCheck
             // 
@@ -374,15 +361,6 @@
             this.AutoUpdateCheck.Text = "Automatically check for updates";
             this.AutoUpdateCheck.UseVisualStyleBackColor = true;
             // 
-            // LabelGroup1
-            // 
-            this.LabelGroup1.AutoSize = true;
-            this.LabelGroup1.Location = new System.Drawing.Point(20, 3);
-            this.LabelGroup1.Name = "LabelGroup1";
-            this.LabelGroup1.Size = new System.Drawing.Size(44, 13);
-            this.LabelGroup1.TabIndex = 1;
-            this.LabelGroup1.Text = "General";
-            // 
             // TabPanel2
             // 
             this.TabPanel2.Controls.Add(this.groupPanel4);
@@ -401,11 +379,11 @@
             this.groupPanel4.Controls.Add(this.TrayTheme1);
             this.groupPanel4.Controls.Add(this.TrayTheme0);
             this.groupPanel4.Controls.Add(this.LabelCustomStyle);
-            this.groupPanel4.Controls.Add(this.LabelGroup4);
             this.groupPanel4.Location = new System.Drawing.Point(0, 128);
             this.groupPanel4.Name = "groupPanel4";
             this.groupPanel4.Size = new System.Drawing.Size(320, 162);
             this.groupPanel4.TabIndex = 1;
+            this.groupPanel4.Title = "Style";
             // 
             // ColorsPanel
             // 
@@ -465,7 +443,7 @@
             // 
             // TrayTheme0
             // 
-            this.TrayTheme0.Location = new System.Drawing.Point(24, 99);
+            this.TrayTheme0.Location = new System.Drawing.Point(24, 98);
             this.TrayTheme0.Name = "TrayTheme0";
             this.TrayTheme0.Size = new System.Drawing.Size(38, 38);
             this.TrayTheme0.TabIndex = 4;
@@ -479,15 +457,6 @@
             this.LabelCustomStyle.TabIndex = 3;
             this.LabelCustomStyle.Text = "Custom";
             // 
-            // LabelGroup4
-            // 
-            this.LabelGroup4.AutoSize = true;
-            this.LabelGroup4.Location = new System.Drawing.Point(20, 3);
-            this.LabelGroup4.Name = "LabelGroup4";
-            this.LabelGroup4.Size = new System.Drawing.Size(31, 13);
-            this.LabelGroup4.TabIndex = 2;
-            this.LabelGroup4.Text = "Style";
-            // 
             // groupPanel3
             // 
             this.groupPanel3.Controls.Add(this.radioButton2);
@@ -497,11 +466,11 @@
             this.groupPanel3.Controls.Add(this.CheckBoxTextShadow);
             this.groupPanel3.Controls.Add(this.TrayTextColor);
             this.groupPanel3.Controls.Add(this.LabelTextColor);
-            this.groupPanel3.Controls.Add(this.LabelGroup3);
             this.groupPanel3.Location = new System.Drawing.Point(0, 0);
             this.groupPanel3.Name = "groupPanel3";
             this.groupPanel3.Size = new System.Drawing.Size(320, 128);
             this.groupPanel3.TabIndex = 0;
+            this.groupPanel3.Title = "General";
             // 
             // radioButton2
             // 
@@ -571,15 +540,6 @@
             this.LabelTextColor.TabIndex = 3;
             this.LabelTextColor.Text = "Text color";
             // 
-            // LabelGroup3
-            // 
-            this.LabelGroup3.AutoSize = true;
-            this.LabelGroup3.Location = new System.Drawing.Point(20, 3);
-            this.LabelGroup3.Name = "LabelGroup3";
-            this.LabelGroup3.Size = new System.Drawing.Size(44, 13);
-            this.LabelGroup3.TabIndex = 2;
-            this.LabelGroup3.Text = "General";
-            // 
             // TabPanel3
             // 
             this.TabPanel3.Controls.Add(this.AboutLink4);
@@ -606,7 +566,7 @@
             this.AboutLink4.ForeColor = System.Drawing.Color.Silver;
             this.AboutLink4.LinkBehavior = System.Windows.Forms.LinkBehavior.HoverUnderline;
             this.AboutLink4.LinkColor = System.Drawing.Color.Silver;
-            this.AboutLink4.Location = new System.Drawing.Point(91, 62);
+            this.AboutLink4.Location = new System.Drawing.Point(90, 62);
             this.AboutLink4.Name = "AboutLink4";
             this.AboutLink4.Size = new System.Drawing.Size(39, 13);
             this.AboutLink4.TabIndex = 10;
@@ -618,7 +578,7 @@
             // 
             this.label6.AutoSize = true;
             this.label6.ForeColor = System.Drawing.Color.Silver;
-            this.label6.Location = new System.Drawing.Point(72, 63);
+            this.label6.Location = new System.Drawing.Point(72, 62);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(17, 13);
             this.label6.TabIndex = 9;
@@ -784,9 +744,7 @@
         private System.Windows.Forms.Panel NumericContainer;
         private System.Windows.Forms.NumericUpDown Numeric1;
         private System.Windows.Forms.Panel Panel1;
-        private System.Windows.Forms.Label LabelGroup1;
         private GroupPanel groupPanel2;
-        private System.Windows.Forms.Label LabelGroup2;
         private System.Windows.Forms.CheckBox CleaningResultsCheck;
         private System.Windows.Forms.CheckBox AutoClearCheck;
         private System.Windows.Forms.CheckBox AutorunCheck;
@@ -800,7 +758,6 @@
         private System.Windows.Forms.Panel TabPanel2;
         private GroupPanel groupPanel3;
         private GroupPanel groupPanel4;
-        private System.Windows.Forms.Label LabelGroup3;
         private ColorDialogProvider TrayTextColor;
         private System.Windows.Forms.Label LabelTextColor;
         private System.Windows.Forms.CheckBox CheckBoxTextShadow;
@@ -808,7 +765,6 @@
         private System.Windows.Forms.Label LabelMouseClick;
         private System.Windows.Forms.RadioButton radioButton2;
         private System.Windows.Forms.RadioButton radioButton1;
-        private System.Windows.Forms.Label LabelGroup4;
         private System.Windows.Forms.Label LabelCustomStyle;
         private System.Windows.Forms.Panel TrayTheme1;
         private System.Windows.Forms.Panel TrayTheme0;

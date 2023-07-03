@@ -25,26 +25,26 @@ namespace Compact_RAM_Cleaner
 
         public event EventHandler OnColorChanged;
 
-        public ColorDialogProvider()
+        protected override void OnMouseEnter(EventArgs e)
         {
-            MouseEnter += (s, e) =>
-            {
-                _drawOutline = true;
-                Refresh();
-            };
+            base.OnMouseEnter(e);
+            _drawOutline = true;
+            Refresh();
+        }
 
-            MouseLeave += (s, e) =>
-            {
-                _drawOutline = false;
-                Refresh();
-            };
+        protected override void OnMouseLeave(EventArgs e)
+        {
+            base.OnMouseLeave(e);
+            _drawOutline = false;
+            Refresh();
+        }
 
-            Click += (s, e) =>
-            {
-                var cd = new ColorDialog { Color = _color, FullOpen = true };
-                if (cd.ShowDialog() == DialogResult.OK)
-                    Color = cd.Color;
-            };
+        protected override void OnClick(EventArgs e)
+        {
+            base.OnClick(e);
+            var cd = new ColorDialog { Color = _color, FullOpen = true };
+            if (cd.ShowDialog() == DialogResult.OK)
+                Color = cd.Color;
         }
 
         protected override void OnPaint(PaintEventArgs e)

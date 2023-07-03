@@ -579,15 +579,15 @@ namespace Compact_RAM_Cleaner
         void UpdateTranslation()
         {
             LabelResetSettings.Text = Translations.GetString("ResetSettings");
-            LabelGroup1.Text = Translations.GetString("GeneralSettings");
+            groupPanel1.Title = Translations.GetString("GeneralSettings");
             AutoUpdateCheck.Text = Translations.GetString("AutoUpdate");
             AutorunCheck.Text = Translations.GetString("Autorun");
             AutoClearCheck.Text = Translations.GetString("AutoClear");
             CleaningResultsCheck.Text = Translations.GetString("ShowCleaningResults");
             StartMinimizedCheck.Text = Translations.GetString("StartMinimized");
-            LabelGroup2.Text = Translations.GetString("Language");
+            groupPanel2.Title = Translations.GetString("Language");
 
-            LabelGroup3.Text = Translations.GetString("GeneralSettings");
+            groupPanel3.Title = Translations.GetString("GeneralSettings");
             LabelTextColor.Text = Translations.GetString("TextColor");
             TrayTextColor.Location = new Point(LabelTextColor.Location.X + LabelTextColor.Width, TrayTextColor.Location.Y);
             CheckBoxTextShadow.Text = Translations.GetString("TextShadow");
@@ -597,7 +597,7 @@ namespace Compact_RAM_Cleaner
             radioButton1.Text = Translations.GetString("ClearRAM");
             radioButton2.Text = Translations.GetString("OpenTaskManager");
 
-            LabelGroup4.Text = Translations.GetString("Style");
+            groupPanel4.Title = Translations.GetString("Style");
             LabelCustomStyle.Text = Translations.GetString("Custom");
 
             AboutLabel1.Text = Translations.GetString("AboutString1");
