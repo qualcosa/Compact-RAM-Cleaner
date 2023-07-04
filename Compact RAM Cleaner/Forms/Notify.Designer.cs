@@ -48,19 +48,19 @@
             this.Label1.Font = new System.Drawing.Font("Tahoma", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.Label1.Location = new System.Drawing.Point(54, 18);
             this.Label1.Name = "Label1";
-            this.Label1.Size = new System.Drawing.Size(150, 17);
+            this.Label1.Size = new System.Drawing.Size(116, 17);
             this.Label1.TabIndex = 1;
-            this.Label1.Text = "Memory released: 0 МБ";
+            this.Label1.Text = "Memory released:";
             // 
             // Label2
             // 
             this.Label2.AutoSize = true;
             this.Label2.Font = new System.Drawing.Font("Tahoma", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.Label2.Location = new System.Drawing.Point(210, 18);
+            this.Label2.Location = new System.Drawing.Point(166, 18);
             this.Label2.Name = "Label2";
-            this.Label2.Size = new System.Drawing.Size(46, 17);
+            this.Label2.Size = new System.Drawing.Size(28, 17);
             this.Label2.TabIndex = 2;
-            this.Label2.Text = "12 MB";
+            this.Label2.Text = "0 B";
             // 
             // Notify
             // 

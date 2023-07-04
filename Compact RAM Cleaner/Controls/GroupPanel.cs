@@ -22,7 +22,7 @@ namespace Compact_RAM_Cleaner
 
         public GroupPanel()
         {
-            _label = new Label { AutoSize = true, Location = new Point(20, 3), Text = Title };
+            _label = new Label { AutoSize = true, Location = new Point(_indent * 2, 3), Text = Title };
             Controls.Add(_label);
         }
 

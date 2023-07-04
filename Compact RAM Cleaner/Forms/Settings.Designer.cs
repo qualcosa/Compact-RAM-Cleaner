@@ -475,7 +475,7 @@
             // radioButton2
             // 
             this.radioButton2.AutoSize = true;
-            this.radioButton2.Location = new System.Drawing.Point(105, 93);
+            this.radioButton2.Location = new System.Drawing.Point(99, 93);
             this.radioButton2.Name = "radioButton2";
             this.radioButton2.Size = new System.Drawing.Size(119, 17);
             this.radioButton2.TabIndex = 9;
@@ -506,7 +506,7 @@
             // TrayTextShadowColor
             // 
             this.TrayTextShadowColor.Color = System.Drawing.Color.Black;
-            this.TrayTextShadowColor.Location = new System.Drawing.Point(112, 46);
+            this.TrayTextShadowColor.Location = new System.Drawing.Point(110, 46);
             this.TrayTextShadowColor.Name = "TrayTextShadowColor";
             this.TrayTextShadowColor.Size = new System.Drawing.Size(40, 18);
             this.TrayTextShadowColor.TabIndex = 6;
@@ -526,7 +526,7 @@
             // TrayTextColor
             // 
             this.TrayTextColor.Color = System.Drawing.Color.White;
-            this.TrayTextColor.Location = new System.Drawing.Point(82, 22);
+            this.TrayTextColor.Location = new System.Drawing.Point(79, 22);
             this.TrayTextColor.Name = "TrayTextColor";
             this.TrayTextColor.Size = new System.Drawing.Size(40, 18);
             this.TrayTextColor.TabIndex = 4;
